@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>US Electricity Retail 2024</title>
+<meta name="description" content="Interactive analysis of 2024 US utility bundled retail electricity sales, revenue, customers and prices (EIA-861).">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232a78d6' d='M13 2 4 14h7l-1 8 9-12h-7z'/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><span>US Electricity Retail 2024</span></a>
+  <nav><a class="on" href="index.html">Dashboard</a><a href="report.html">Report</a></nav>
+  <button class="theme-btn" type="button">☾ Dark</button>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">EIA-861 · 2024 · Utility bundled retail sales</div>
+    <h1>Where America's electricity dollars go</h1>
+    <p class="lede" id="lede"></p>
+  </section>
+
+  <section class="kpis" id="kpis"></section>
+
+  <div class="grid">
+    <div class="card c7">
+      <h2>Average all-sector price by state</h2>
+      <p class="sub">Bundled retail revenue ÷ sales, cents per kWh. Hover a state for detail.</p>
+      <div class="chart" id="map"></div>
+    </div>
+    <div class="card c5">
+      <h2>Who uses, who pays</h2>
+      <p class="sub">Share of bundled customers, energy sold and revenue by sector.</p>
+      <div class="chart" id="sectorStack"></div>
+      <h2 style="margin-top:18px">Average price by sector</h2>
+      <p class="sub">Cents per kWh; dashed line is the all-sector average.</p>
+      <div class="chart" id="sectorPrice"></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card c12">
+      <h2>States ranked by average price</h2>
+      <div class="seg" id="sectorSeg"><button data-k="price" class="on">All sectors</button><button data-k="res">Residential</button><button data-k="com">Commercial</button><button data-k="ind">Industrial</button></div>
+      <p class="sub" id="rankSub"></p>
+      <div class="chart" id="rank"></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card c6">
+      <h2>Ownership: many small utilities, few big ones</h2>
+      <p class="sub">Bundled sales by ownership type (TWh). Hover for entity count, customers and price.</p>
+      <div class="chart" id="own"></div>
+    </div>
+    <div class="card c6">
+      <h2>Largest utilities by energy sold</h2>
+      <p class="sub">Top 15 entity–state records by bundled sales (TWh).</p>
+      <div class="chart" id="top"></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card c6">
+      <h2>Heavier users, cheaper power</h2>
+      <p class="sub">Each dot is a state: average monthly residential use vs residential price.</p>
+      <div class="chart" id="scatter"></div>
+    </div>
+    <div class="card c6">
+      <h2>Residential price across 1,500+ utilities</h2>
+      <p class="sub" id="histSub"></p>
+      <div class="chart" id="hist"></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card c12">
+      <h2>Retail choice: share of customers still on bundled utility service</h2>
+      <p class="sub">Bundled utility customers (Table 10, excluding behind-the-meter providers) ÷ all electric customers (Table 1). Low shares mark states where many customers buy energy from competitive suppliers. Lowest 15 shown.</p>
+      <div class="chart" id="choice"></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card c12">
+      <h2>State data table</h2>
+      <p class="sub">Click a column header to sort. Sales in TWh, revenue in $ billions, prices in ¢/kWh.</p>
+      <div id="tbl"></div>
+    </div>
+  </div>
+</main>
+
+<footer><div class="wrap">
+  Source: U.S. Energy Information Administration, Form EIA-861 (2024) — Table 1 (customers, total electric industry), Tables 6–10 (utility bundled retail sales by sector). Bundled sales exclude energy-only and delivery-only service, so states with retail choice show fewer bundled customers than Table 1. Prices are revenue ÷ sales. Short-form utilities are counted only in Table 10.
+</div></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/charts.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

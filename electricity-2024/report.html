@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2024 Electricity Retail Report</title>
+<meta name="description" content="One-page summary report of 2024 US utility bundled retail electricity sales (EIA-861).">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232a78d6' d='M13 2 4 14h7l-1 8 9-12h-7z'/%3E%3C/svg%3E">
+</head>
+<body data-page="report">
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><span>US Electricity Retail 2024</span></a>
+  <nav><a href="index.html">Dashboard</a><a class="on" href="report.html">Report</a></nav>
+  <button class="theme-btn" type="button">☾ Dark</button>
+</div></header>
+
+<article class="page">
+  <button class="theme-btn printbtn" type="button" onclick="window.print()">Print / Save PDF</button>
+  <div class="eyebrow">Summary report · EIA-861, 2024</div>
+  <h1>U.S. retail electricity in 2024: a 12.5¢ average with wide gaps underneath</h1>
+  <div class="meta"><span>Data: EIA Form 861 — Tables 1, 6, 7, 8, 9, 10</span><span>Scope: utility bundled retail sales, 50 states + DC</span><span>Prepared by: SAM</span></div>
+
+  <section class="kpis" id="kpis"></section>
+
+  <h3>Summary</h3>
+  <p>Utilities sold <b>3,364 TWh</b> on bundled service in 2024 and collected <b>$420.1 billion</b>, an average of <b>12.49¢/kWh</b>. Bundled service covers 147.6 million of the 163.7 million electricity customers in the U.S. (90%). The rest buy their energy from competitive suppliers and only use the utility for delivery.</p>
+
+  <div class="two">
+    <div>
+      <h3>Key findings</h3>
+      <ul>
+        <li><b>Homes pay the most per kWh.</b> Residential customers make up 87.5% of accounts and 40.8% of energy use, but 51.6% of revenue, at 15.8¢. Commercial pays 11.9¢ and industrial pays 7.8¢. Industrial customers are 0.7% of accounts and use 24.8% of the energy.</li>
+        <li><b>Where you live matters more than anything else.</b> Hawaii (38.2¢) pays 4.8× more than North Dakota (7.9¢). California, New England and New York are all above 22¢. The Plains and South Central states are mostly under 10¢.</li>
+        <li><b>Cheap power goes with heavy use.</b> Across states, residential use and price are strongly negatively correlated (r = −0.73). Louisiana homes use 1,202 kWh a month at 11.7¢, while Hawaii homes use 474 kWh at 42.9¢. Bills end up closer together than prices do: about $141 a month in Louisiana and $203 in Hawaii.</li>
+        <li><b>A few investor-owned utilities carry most of the load.</b> 197 investor-owned utilities serve 62% of customers and sell 57% of the energy. 1,811 municipal utilities and 918 cooperatives together serve about 27%. Florida Power &amp; Light alone sells 129 TWh (3.8% of the U.S.), and the ten largest sell 20%.</li>
+        <li><b>Retail choice shrinks the utility base.</b> Only 41% of Ohio customers and 43% of Massachusetts customers are on bundled service. California, New Hampshire, Rhode Island, Illinois and Pennsylvania are all below 75%.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="fig"><div class="t">Average all-sector price by state (¢/kWh)</div><div class="chart" id="map"></div></div>
+    </div>
+  </div>
+
+  <div class="two" style="margin-top:12px">
+    <div class="fig"><div class="t">Sector share of customers, energy and revenue</div><div class="chart" id="sectorStack"></div></div>
+    <div class="fig"><div class="t">Residential use vs price, by state</div><div class="chart" id="scatter"></div></div>
+  </div>
+
+  <h3>Implications</h3>
+  <ul>
+    <li>The national average doesn't describe any real customer. Any benchmarking or cost modeling should be done at the state level and separately for each sector.</li>
+    <li>High-price states (HI, CA, New England) have the most to gain from efficiency, rooftop solar and storage. Low-price, high-use states in the South are the most exposed to load growth and summer peaks.</li>
+    <li>In states with retail choice, bundled utility figures understate total demand. Pair them with the Table 1 customer counts before comparing states.</li>
+  </ul>
+  <p class="note">Method: prices are revenue ÷ sales. State totals come from Table 10, which includes short-form utilities (1,713 entities, 4.6M customers) and state adjustments. Sector figures come from Tables 6–9. Transportation (50 customers, 1.6 TWh) is left out of the sector charts. Interactive charts are on the <a href="index.html">dashboard</a>.</p>
+</article>
+
+<footer><div class="wrap">Source: U.S. Energy Information Administration, Form EIA-861 (2024).</div></footer>
+<script src="assets/data.js"></script>
+<script src="assets/charts.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
